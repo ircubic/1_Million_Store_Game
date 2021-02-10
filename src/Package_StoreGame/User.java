@@ -1,37 +1,37 @@
 package Package_StoreGame;
 
 public class User {
-    private String name;
-    private int Inventory_Apple;
-    private int Balance;
+    private final String name;
+    private int appleAmount;
+    private int balance;
 
-    Items Apple = new Items("Apple");
-
-    public User(String name) {
+    public User(String name, int appleAmount, int balance) {
         this.name = name;
+        this.appleAmount = appleAmount;
+        this.balance = balance;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getInventory_Apple() {
-        return Inventory_Apple;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setInventory_Apple(int inventory_Apple) {
-        Inventory_Apple = inventory_Apple;
-    }
-
-    public void setBalance(int balance) {
-        Balance = balance;
+    public int getAppleAmount() {
+        return appleAmount;
     }
 
     public int getBalance() {
-        return Balance;
+        return balance;
+    }
+
+    public void AddApples(int amount, int price)
+    {
+        this.appleAmount += amount;
+        this.balance -= (amount*price);
+    }
+
+    public void RemoveApples(int amount, int price)
+    {
+        this.appleAmount -= amount;
+        this.balance += (amount * price);
     }
 }
